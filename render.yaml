@@ -1,0 +1,13 @@
+
+services:
+  - type: web
+    name: post-analytics-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ANALYTICS_API_KEY
+        sync: false
+      - key: STUDENT_EMAIL
+        sync: false
